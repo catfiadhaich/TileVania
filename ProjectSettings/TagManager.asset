@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Ground
   - Ladder
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Hazard
   - Bullets
   - Exit
-  - 
+  - Coins
   - 
   - 
   - 

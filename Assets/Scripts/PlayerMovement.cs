@@ -101,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
         playerBody.constraints = RigidbodyConstraints2D.FreezePositionX;
         playerAnimator.SetTrigger("Dead");
         gameObject.layer = LayerMask.NameToLayer("Dead");
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
     }
 
 

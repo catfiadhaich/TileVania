@@ -5,16 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class Levels : MonoBehaviour
 {
-    int currentLevel = 0;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        StartCoroutine(LoadNextScene());
+        if (other.tag == "Player")
+        {
+            StartCoroutine(LoadNextScene());
+        }
     }
 
-    private IEnumerator LoadNextScene() {
+    private IEnumerator LoadNextScene()
+    {
+
         yield return new WaitForSecondsRealtime(1);
-        currentLevel++;
-        SceneManager.LoadScene(currentLevel);
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        currentScene++;
+        if (currentScene >= SceneManager.sceneCountInBuildSettings)
+        {
+            currentScene = 0;
+        }
+        SceneManager.LoadScene(currentScene);
     }
 }
